@@ -6,6 +6,8 @@ const hbs = require('hbs')
 
 // Initializing express
 const app = express()
+// heroku port OR 3000 as fallback
+const port = process.env.PORT || 3000
 
 // Define paths for express config
 const publicDirectory = path.join(__dirname, '../public')
@@ -99,6 +101,7 @@ app.get('*', (req, res) => {
 })
 
 // running the aplication on port 3000
-app.listen(3000, () => {
-    console.log('Server is running on port 3000!')
+// for heroku it has to be something different
+app.listen(port, () => {
+    console.log('Server is running on port ' + port + '!')
 })
